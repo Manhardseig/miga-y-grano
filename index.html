@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta Viewport estricto para garantizar correcta visualización en celulares y tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Miga & Grano | Panadería Artesanal de F. M. Deleppe</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#FDFBF7',
+                            100: '#F7F2E8',
+                            200: '#EBE0CB',
+                            300: '#D6C098',
+                            400: '#B89661',
+                            500: '#8C6239',
+                            600: '#714B29',
+                            700: '#58371E',
+                            800: '#4A3525',
+                            900: '#2D1F15',
+                        },
+                        wheat: {
+                            DEFAULT: '#CFA15A',
+                            light: '#E6C894',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Prevención de desbordamiento horizontal en celulares */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        /* Fondo decorativo con patrón sutil */
+        .hero-pattern {
+            background-color: #FDFBF7;
+            background-image: radial-gradient(#8C6239 0.5px, transparent 0.5px), radial-gradient(#8C6239 0.5px, #FDFBF7 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+        /* Imágenes y SVG verdaderamente responsivos */
+        img, svg {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="bg-brand-50 text-brand-900 font-sans antialiased selection:bg-brand-300 selection:text-brand-900 w-full min-h-screen">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-brand-50/95 backdrop-blur-md border-b border-brand-200 w-full">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+            
+            <!-- Branding Header (Icono + Texto) -->
+            <div class="flex items-center gap-2.5 sm:gap-3">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-brand-100 border border-brand-300 flex items-center justify-center text-brand-600 shadow-sm shrink-0">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M12 4c-4.418 0-8 2.239-8 5 0 1.257.733 2.403 1.95 3.25C4.733 13.1 4 14.243 4 15.5c0 2.761 3.582 5 8 5s8-2.239 8-5c0-1.257-.733-2.401-1.95-3.25C19.267 11.24 20 10.096 20 8.8c0-2.761-3.582-4.8-8-4.8z" />
+                        <path d="M8 8.5c1.5-1 3.5-1 5 0M7 14c2-1 5-1 7 0" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-serif font-bold text-lg sm:text-xl text-brand-800 tracking-tight block leading-tight">Miga & Grano</span>
+                    <span class="text-[10px] sm:text-xs text-brand-500 font-medium tracking-wider uppercase block">de F.M. Deleppe</span>
+                </div>
+            </div>
+
+            <!-- Menú Navegación Escritorio -->
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-brand-700">
+                <a href="#filosofia" class="hover:text-brand-500 transition-colors">Filosofía</a>
+                <a href="#estrella" class="hover:text-brand-500 transition-colors">Producto Estrella</a>
+                <a href="#catalogo" class="hover:text-brand-500 transition-colors">Catálogo</a>
+                <a href="#nutricion" class="hover:text-brand-500 transition-colors">Nutrición</a>
+                <a href="#contacto" class="hover:text-brand-500 transition-colors">Contacto</a>
+            </nav>
+
+            <!-- Botón WhatsApp Header -->
+            <a href="https://wa.me/?text=Hola!%20Quisiera%20hacer%20un%20pedido%20en%20Miga%20%26%20Grano" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full font-medium text-xs sm:text-sm transition-all shadow-sm hover:shadow-md shrink-0">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span class="hidden sm:inline">Pedir por WhatsApp</span>
+                <span class="sm:hidden">Pedir</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative py-10 sm:py-16 md:py-20 hero-pattern border-b border-brand-200 w-full">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            
+            <!-- Logo Adaptativo -->
+            <div class="mb-6 sm:mb-8 flex justify-center px-2">
+                <img src="miga y grano_2.jpg" 
+                     onerror="this.onerror=null; this.src='miga y grano.jpg';" 
+                     alt="Miga & Grano de F.M. Deleppe - Panadería Artesanal" 
+                     class="w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[380px] md:max-w-[420px] h-auto object-contain rounded-2xl shadow-md border border-brand-200 bg-white p-2 sm:p-3 transition-transform duration-300 hover:scale-[1.02]">
+            </div>
+
+            <span class="inline-block px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-brand-100 text-brand-700 text-[11px] sm:text-xs font-semibold tracking-wider uppercase mb-4 border border-brand-200 shadow-sm">
+                Panadería Artesanal de F. M. Deleppe
+            </span>
+
+            <h1 class="font-serif text-2xl xs:text-3xl sm:text-5xl md:text-6xl font-bold text-brand-900 tracking-tight leading-tight mb-4 sm:mb-6">
+                Hecho con pasión, <br><span class="italic font-normal text-brand-600">todos los días.</span>
+            </h1>
+
+            <p class="text-base sm:text-2xl text-brand-700 max-w-2xl mx-auto mb-6 sm:mb-8 font-serif italic px-2">
+                "Elegí lo natural, elegí sentirte bien."
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 sm:gap-4 px-4 sm:px-0">
+                <a href="#catalogo" class="bg-brand-700 hover:bg-brand-800 text-white px-6 py-3.5 rounded-full font-semibold text-sm transition-all shadow-md text-center">
+                    Ver Todos los Productos
+                </a>
+                <a href="#estrella" class="bg-white hover:bg-brand-100 text-brand-800 border border-brand-300 px-6 py-3.5 rounded-full font-semibold text-sm transition-all shadow-sm text-center">
+                    Conocer Nuestro Pan Estrella
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN FILOSOFÍA -->
+    <section id="filosofia" class="py-12 sm:py-16 md:py-20 bg-white border-b border-brand-200 w-full">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+                <h2 class="font-serif text-2xl sm:text-4xl font-bold text-brand-800 mb-3 sm:mb-4">Nuestra Filosofía Artesanal</h2>
+                <div class="w-16 h-0.5 bg-wheat mx-auto mb-5"></div>
+                <p class="text-brand-700 leading-relaxed text-sm sm:text-lg px-1">
+                    En <strong class="text-brand-900">Miga & Grano</strong> creemos que la buena panadería comienza con el respeto por los ingredientes naturales y los procesos tradicionales. Cada molde es elaborado con dedicación, utilizando materias primas seleccionadas de máxima pureza para ofrecer un producto fresco, nutritivo y verdaderamente saludable.
+                </p>
+            </div>
+
+            <!-- Badges de Valor (Grid Responsivo) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+                <div class="p-5 sm:p-6 rounded-2xl bg-brand-50 border border-brand-200 text-center shadow-sm">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3 text-2xl shadow-sm border border-brand-200">
+                        🌱
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-brand-800 mb-1.5">0% Conservantes</h3>
+                    <p class="text-xs sm:text-sm text-brand-600">Sin aditivos químicos ni conservantes industriales. Frescura pura y natural.</p>
+                </div>
+
+                <div class="p-5 sm:p-6 rounded-2xl bg-brand-50 border border-brand-200 text-center shadow-sm">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3 text-2xl shadow-sm border border-brand-200">
+                        🌾
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-brand-800 mb-1.5">100% Granos Nobles</h3>
+                    <p class="text-xs sm:text-sm text-brand-600">Harinas integrales reales, semillas seleccionadas y miel pura de abeja.</p>
+                </div>
+
+                <div class="p-5 sm:p-6 rounded-2xl bg-brand-50 border border-brand-200 text-center shadow-sm">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3 text-2xl shadow-sm border border-brand-200">
+                        ❤️
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-brand-800 mb-1.5">0% Grasas Trans</h3>
+                    <p class="text-xs sm:text-sm text-brand-600">Elaborado exclusivamente con aceite de girasol Natura de primera calidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PRODUCTO ESTRELLA -->
+    <section id="estrella" class="py-12 sm:py-16 md:py-24 bg-brand-100/50 border-b border-brand-200 w-full">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
+                
+                <div class="lg:col-span-5 mb-8 lg:mb-0">
+                    <span class="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-brand-500 mb-2 block">Producto Destacado</span>
+                    <h2 class="font-serif text-2xl sm:text-4xl font-bold text-brand-900 mb-3 sm:mb-4 leading-tight">
+                        Pan 100% Integral Artesanal con Semillas
+                    </h2>
+                    <p class="text-brand-700 text-sm sm:text-base mb-5 leading-relaxed">
+                        Nuestro pan integral distintivo está diseñado para brindar la máxima calidad nutricional, con una textura esponjosa, miga húmeda y un aroma inigualable.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-6">
+                        <span class="px-2.5 py-1 bg-white text-brand-800 rounded-full text-xs font-semibold border border-brand-200 shadow-sm">Con Lino Dorado</span>
+                        <span class="px-2.5 py-1 bg-white text-brand-800 rounded-full text-xs font-semibold border border-brand-200 shadow-sm">Chía & Girasol</span>
+                        <span class="px-2.5 py-1 bg-white text-brand-800 rounded-full text-xs font-semibold border border-brand-200 shadow-sm">Sésamo Integral</span>
+                        <span class="px-2.5 py-1 bg-white text-brand-800 rounded-full text-xs font-semibold border border-brand-200 shadow-sm">Endulzado con Miel</span>
+                    </div>
+                    <a href="https://wa.me/?text=Hola!%20Quiero%20pedir%20el%20Pan%20100%25%20Integral%20Multicereal" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full sm:w-auto gap-2 bg-brand-700 hover:bg-brand-800 text-white px-5 py-3 rounded-xl font-medium text-sm transition-all shadow-sm">
+                        <span>Encargar este pan</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </a>
+                </div>
+
+                <!-- Tabla de Especificaciones de Calidad -->
+                <div class="lg:col-span-7 bg-white p-5 sm:p-8 rounded-3xl shadow-sm border border-brand-200 w-full overflow-hidden">
+                    <h3 class="font-serif font-bold text-lg sm:text-xl text-brand-800 mb-3 border-b border-brand-100 pb-3">
+                        Especificaciones de Calidad
+                    </h3>
+                    <div class="w-full overflow-x-auto">
+                        <table class="w-full text-left text-xs sm:text-sm min-w-[280px]">
+                            <tbody class="divide-y divide-brand-100">
+                                <tr>
+                                    <td class="py-2.5 font-semibold text-brand-800 w-1/3 pr-2">Base de Harina</td>
+                                    <td class="py-2.5 text-brand-700">100% Harina de Trigo Integral de grano entero (sin mezclas con harina blanca)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 font-semibold text-brand-800 pr-2">Mix de Semillas</td>
+                                    <td class="py-2.5 text-brand-700">Lino dorado, chía, semillas de girasol y sésamo integral</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 font-semibold text-brand-800 pr-2">Endulzante Natural</td>
+                                    <td class="py-2.5 text-brand-700">Miel natural de abeja (sin jarabes ni endulzantes artificiales)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 font-semibold text-brand-800 pr-2">Materia Grasa</td>
+                                    <td class="py-2.5 text-brand-700">Aceite de Girasol Natura de primera calidad</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2.5 font-semibold text-brand-800 pr-2">Aporte Nutricional</td>
+                                    <td class="py-2.5 text-brand-700">Alto contenido de fibra alimentaria (5,0g) y proteínas vegetales (5,7g) por porción</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CATÁLOGO -->
+    <section id="catalogo" class="py-12 sm:py-16 md:py-24 bg-white border-b border-brand-200 w-full">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+                <h2 class="font-serif text-2xl sm:text-4xl font-bold text-brand-800 mb-3">Nuestro Catálogo de Productos</h2>
+                <div class="w-16 h-0.5 bg-wheat mx-auto mb-4"></div>
+                <p class="text-brand-600 text-xs sm:text-sm px-2">Elaborados frescos todos los días bajo pedido para garantizar la máxima calidad.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                
+                <!-- Producto 1 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-brand-50 border border-brand-200 hover:border-brand-300 transition-all flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-brand-500 bg-white px-2.5 py-1 rounded-md border border-brand-200">Clásico</span>
+                            <span class="text-2xl">🍞</span>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg sm:text-xl text-brand-800 mb-2">Pan Lactal Blanco Clásico</h3>
+                        <p class="text-brand-700 text-xs sm:text-sm leading-relaxed mb-4">
+                            Esponjoso, suave y con miga bien estructurada. Elaborado tradicionalmente para lograr el dorado perfecto en tostadas y la textura ideal para sándwiches.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/?text=Hola!%20Quiero%20consultar%20por%20el%20Pan%20Lactal%20Blanco%20Clásico" target="_blank" rel="noopener noreferrer" class="text-brand-700 hover:text-brand-900 font-semibold text-xs uppercase tracking-wider flex items-center gap-1 mt-2">
+                        Pedir este producto →
+                    </a>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-brand-50 border border-brand-200 hover:border-brand-300 transition-all flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-brand-500 bg-white px-2.5 py-1 rounded-md border border-brand-200">100% Natural</span>
+                            <span class="text-2xl">🌾</span>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg sm:text-xl text-brand-800 mb-2">Pan 100% Integral Multicereal</h3>
+                        <p class="text-brand-700 text-xs sm:text-sm leading-relaxed mb-4">
+                            Cargado de fibra, un mix de 4 semillas seleccionadas (lino, chía, girasol, sésamo) y el toque justo de miel natural. Sin harina blanca ni colorantes.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/?text=Hola!%20Quiero%20consultar%20por%20el%20Pan%20Integral%20Multicereal" target="_blank" rel="noopener noreferrer" class="text-brand-700 hover:text-brand-900 font-semibold text-xs uppercase tracking-wider flex items-center gap-1 mt-2">
+                        Pedir este producto →
+                    </a>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-brand-50 border border-brand-200 hover:border-brand-300 transition-all flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-green-700 bg-green-50 px-2.5 py-1 rounded-md border border-green-200">Especialidad</span>
+                            <span class="text-2xl">✨</span>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg sm:text-xl text-brand-800 mb-2">Línea Libre de Gluten (Sin TACC)</h3>
+                        <p class="text-brand-700 text-xs sm:text-sm leading-relaxed mb-4">
+                            Pan lactal multicereal libre de gluten, especialmente formulado para ofrecer una miga suave, tierna y sabrosa cuidando cada etapa del proceso.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/?text=Hola!%20Quiero%20consultar%20por%20la%20línea%20Libre%20de%20Gluten" target="_blank" rel="noopener noreferrer" class="text-brand-700 hover:text-brand-900 font-semibold text-xs uppercase tracking-wider flex items-center gap-1 mt-2">
+                        Pedir este producto →
+                    </a>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-brand-50 border border-brand-200 hover:border-brand-300 transition-all flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-brand-500 bg-white px-2.5 py-1 rounded-md border border-brand-200">Artesanal</span>
+                            <span class="text-2xl">🍕</span>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg sm:text-xl text-brand-800 mb-2">Prepizzas Artesanales</h3>
+                        <p class="text-brand-700 text-xs sm:text-sm leading-relaxed mb-4">
+                            Disponibles en versión clásica e integral. Listas para hornear con una masa de piso crocante por fuera y miga suave y aireada por dentro.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/?text=Hola!%20Quiero%20consultar%20por%20las%20Prepizzas%20Artesanales" target="_blank" rel="noopener noreferrer" class="text-brand-700 hover:text-brand-900 font-semibold text-xs uppercase tracking-wider flex items-center gap-1 mt-2">
+                        Pedir este producto →
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<!-- SECCIÓN GALERÍA - MIGA & GRANO -->
+<section class="galeria-seccion">
+  <div class="galeria-container">
+    <h2 class="galeria-titulo">Nuestros Productos Artesanales</h2>
+    <p class="galeria-subtitulo">Hechos a mano, con ingredientes seleccionados y el amor de siempre.</p>
+
+    <div class="galeria-grid">
+      
+      <!-- Foto 1 -->
+      <div class="galeria-card">
+        <div class="galeria-img-wrapper">
+          <img src="pan-integral-etiqueta.jpg" alt="Pan 100% Integral con Semillas Miga & Grano" loading="lazy">
+        </div>
+        <div class="galeria-info">
+          <h3>Pan 100% Integral con Semillas</h3>
+          <p>Elaborado con lino, chía, girasol y sésamo integral. Con información nutricional transparente y envasado fresco.</p>
+        </div>
+      </div>
+
+      <!-- Foto 2 -->
+      <div class="galeria-card">
+        <div class="galeria-img-wrapper">
+          <img src="pan-integral-corte-miga.jpg" alt="Miga esponjosa de pan integral artesanal" loading="lazy">
+        </div>
+        <div class="galeria-info">
+          <h3>Miga y Textura Perfecta</h3>
+          <p>Un migado parejo, húmedo y liviano que demuestra nuestro minucioso proceso de leudado.</p>
+        </div>
+      </div>
+
+      <!-- Foto 3 -->
+      <div class="galeria-card">
+        <div class="galeria-img-wrapper">
+          <img src="panes%integrales%mate.jpg" alt="Panes artesanales recién horneados y mate tradicional" loading="lazy">
+        </div>
+        <div class="galeria-info">
+          <h3>Tradición y Sabor Casero</h3>
+          <p>Acompañando tus mañanas y tardes con el auténtico sabor del pan hecho a mano.</p>
+        </div>
+      </div>
+
+      <!-- Foto 4 -->
+      <div class="galeria-card">
+        <div class="galeria-img-wrapper">
+          <img src="panes-lactales-empaquetados.jpg" alt="Panes Lactales y Blancos Artesanales Miga & Grano" loading="lazy">
+        </div>
+        <div class="galeria-info">
+          <h3>Pan Lactal Artesanal</h3>
+          <p>Sabor suave y miga tierna, ideal para los sándwiches y tostadas de toda la familia.</p>
+        </div>
+      </div>
+
+      <!-- Foto 5 -->
+      <div class="galeria-card">
+        <div class="galeria-img-wrapper">
+          <img src="prepizzas-artesanales.jpg" alt="Prepizzas artesanales empaquetadas Miga & Grano" loading="lazy">
+        </div>
+        <div class="galeria-info">
+          <h3>Prepizzas Caseras</h3>
+          <p>Masa artesanal con salsa de tomate seleccionada, listas para agregar tu queso favorito y hornear.</p>
+        </div>
+      </div>
+
+      <!-- Foto 6 -->
+      <div class="galeria-card">
+        <div class="galeria-img-wrapper">
+          <img src="panes-recien-horneados-rejilla.jpg" alt="Panes artesanales SIN TACC recién salidos del horno" loading="lazy">
+        </div>
+        <div class="galeria-info">
+          <h3>Horneado Diario</h3>
+          <p>Garantía de frescura constante en cada lote de producción.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ESTILOS CSS -->
+<style>
+  .galeria-seccion {
+    padding: 60px 20px;
+    background-color: #fcf9f5;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .galeria-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .galeria-titulo {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #4a2c11;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  .galeria-subtitulo {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #7a6350;
+    margin-bottom: 40px;
+  }
+
+  .galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .galeria-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .galeria-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  .galeria-img-wrapper {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+    background-color: #eee;
+  }
+
+  .galeria-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .galeria-card:hover .galeria-img-wrapper img {
+    transform: scale(1.05);
+  }
+
+  .galeria-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .galeria-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+    color: #333333;
+    font-weight: 600;
+  }
+
+  .galeria-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #666666;
+    line-height: 1.5;
+  }
+
+  /* Adaptación para pantallas pequeñas */
+  @media (max-width: 600px) {
+    .galeria-titulo {
+      font-size: 1.75rem;
+    }
+    .galeria-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+    <!-- SECCIÓN NUTRICIÓN -->
+    <section id="nutricion" class="py-12 sm:py-16 md:py-20 bg-brand-50 border-b border-brand-200 w-full">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+                <h2 class="font-serif text-2xl sm:text-4xl font-bold text-brand-800 mb-3">Información Nutricional</h2>
+                <div class="w-16 h-0.5 bg-wheat mx-auto mb-4"></div>
+                <p class="text-brand-600 text-xs sm:text-sm px-2">Transparencia y calidad en todos nuestros ingredientes.</p>
+            </div>
+
+            <!-- Tablas Nutricionales (Grid para Pan Integral y Pan Blanco) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                
+                <!-- Tabla 1: Pan 100% Integral -->
+                <div class="bg-white p-5 sm:p-8 rounded-3xl border border-brand-200 shadow-sm w-full overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-5 border-b border-brand-100 pb-4">
+                            <div>
+                                <h3 class="font-serif font-bold text-xl sm:text-2xl text-brand-900">Pan Integral con Semillas</h3>
+                                <p class="text-xs text-brand-500 mt-0.5">100% Integral Artesanal Multicereal</p>
+                            </div>
+                            <span class="self-start text-[11px] sm:text-xs font-semibold text-brand-700 bg-brand-100 px-3 py-1 rounded-full border border-brand-200">
+                                Porción: 2 rebanadas (60g)
+                            </span>
+                        </div>
+
+                        <div class="w-full overflow-x-auto">
+                            <table class="w-full text-left text-xs sm:text-sm min-w-[280px]">
+                                <thead>
+                                    <tr class="text-[11px] sm:text-xs font-bold uppercase text-brand-500 border-b border-brand-200">
+                                        <th class="pb-2">Nutriente</th>
+                                        <th class="pb-2 text-right">Cantidad (60g)</th>
+                                        <th class="pb-2 text-right">% VD (*)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-brand-100 text-brand-800">
+                                    <tr>
+                                        <td class="py-2 font-medium">Valor Energético</td>
+                                        <td class="py-2 text-right font-semibold">154 kcal / 645 kJ</td>
+                                        <td class="py-2 text-right text-brand-500">8%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 font-medium">Carbohidratos</td>
+                                        <td class="py-2 text-right font-semibold">23,3 g</td>
+                                        <td class="py-2 text-right text-brand-500">8%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 font-medium">Proteínas</td>
+                                        <td class="py-2 text-right font-semibold">5,7 g</td>
+                                        <td class="py-2 text-right text-brand-500">8%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 font-medium">Grasas Totales</td>
+                                        <td class="py-2 text-right font-semibold">4,3 g</td>
+                                        <td class="py-2 text-right text-brand-500">8%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 font-medium">Grasas Saturadas</td>
+                                        <td class="py-2 text-right font-semibold">0,5 g</td>
+                                        <td class="py-2 text-right text-brand-500">2%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 font-medium">Grasas Trans</td>
+                                        <td class="py-2 text-right font-semibold">0 g</td>
+                                        <td class="py-2 text-right text-brand-500">0%</td>
+                                    </tr>
+                                    <tr class="bg-brand-50/60">
+                                        <td class="py-2 font-bold text-brand-900">Fibra Alimentaria</td>
+                                        <td class="py-2 text-right font-bold text-brand-900">5,0 g</td>
+                                        <td class="py-2 text-right font-bold text-brand-700">20%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 font-medium">Sodio</td>
+                                        <td class="py-2 text-right font-semibold">252 mg</td>
+                                        <td class="py-2 text-right text-brand-500">11%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p class="text-[10px] sm:text-[11px] text-brand-400 mt-4 leading-normal">
+                        (*) % Valores Diarios con base a una dieta de 2.000 kcal u 8.400 kJ.
+                    </p>
+                </div>
+
+                <!-- Tabla 2: Pan Lactal Blanco Clásico -->
+                <div class="bg-white p-5 sm:p-8 rounded-3xl border border-brand-200 shadow-sm w-full overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-5 border-b border-brand-100 pb-4">
+                            <div>
+                                <h3 class="font-serif font-bold text-xl sm:text-2xl text-brand-900">Pan Lactal Blanco</h3>
+                                <p class="text-xs text-brand-500 mt-0.5">Clásico Tradicional Artesanal</p>
+                            </div>
+                            <span class="self-start text-[11px] sm:text-xs font-semibold text-brand-700 bg-brand-100 px-3 py-1 rounded-full border border-brand-200">
+                                Porción: 2 rebanadas (60g)
+                            </span>
+                        </div>
+
+                        <div class="w-full overflow-x-auto">
+                            <table class="w-full text-left text-xs sm:text-sm min-w-[280px]">
+                                <thead>
+                                    <tr class="text-[11px] sm:text-xs font-bold uppercase text-brand-500 border-b border-brand-200">
+                                        <th class="pb-2">Nutriente</th>
+                                        <th class="pb-2 text-right">Cantidad (60g)</th>
+                                        <th class="pb-2 text-right">% VD (*)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-brand-100 text-brand-800">
+                                    <tr>
+                                        <td class="py-2 font-medium">Valor Energético</td>
+                                        <td class="py-2 text-right font-semibold">160 kcal / 672 kJ</td>
+                                        <td class="py-2 text-right text-brand-500">8%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 font-medium">Carbohidratos</td>
+                                        <td class="py-2 text-right font-semibold">29,5 g</td>
+                                        <td class="py-2 text-right text-brand-500">10%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 font-medium">Proteínas</td>
+                                        <td class="py-2 text-right font-semibold">5,2 g</td>
+                                        <td class="py-2 text-right text-brand-500">7%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 font-medium">Grasas Totales</td>
+                                        <td class="py-2 text-right font-semibold">2,2 g</td>
+                                        <td class="py-2 text-right text-brand-500">4%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 font-medium">Grasas Saturadas</td>
+                                        <td class="py-2 text-right font-semibold">0,3 g</td>
+                                        <td class="py-2 text-right text-brand-500">1%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 font-medium">Grasas Trans</td>
+                                        <td class="py-2 text-right font-semibold">0 g</td>
+                                        <td class="py-2 text-right text-brand-500">0%</td>
+                                    </tr>
+                                    <tr class="bg-brand-50/60">
+                                        <td class="py-2 font-bold text-brand-900">Fibra Alimentaria</td>
+                                        <td class="py-2 text-right font-bold text-brand-900">1,5 g</td>
+                                        <td class="py-2 text-right font-bold text-brand-700">6%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 font-medium">Sodio</td>
+                                        <td class="py-2 text-right font-semibold">240 mg</td>
+                                        <td class="py-2 text-right text-brand-500">10%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p class="text-[10px] sm:text-[11px] text-brand-400 mt-4 leading-normal">
+                        (*) % Valores Diarios con base a una dieta de 2.000 kcal u 8.400 kJ.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Consejos de Conservación -->
+            <div class="max-w-4xl mx-auto">
+                <h3 class="font-serif font-bold text-xl sm:text-2xl text-brand-900 mb-3 sm:mb-4 text-center">Recomendaciones de Conservación</h3>
+                <p class="text-brand-700 text-xs sm:text-sm mb-6 leading-relaxed text-center">
+                    Al no contener conservantes artificiales ni aditivos químicos, nuestros panes conservan su frescura siguiendo estos simples consejos:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="flex items-start gap-3 p-3.5 sm:p-4 bg-white rounded-xl border border-brand-200 shadow-sm">
+                        <span class="text-lg sm:text-xl shrink-0">☀️</span>
+                        <div>
+                            <h4 class="font-bold text-xs sm:text-sm text-brand-800">Lugar fresco y seco</h4>
+                            <p class="text-[11px] sm:text-xs text-brand-600 mt-0.5">Mantener en ambiente limpio y resguardado de la luz solar directa.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3.5 sm:p-4 bg-white rounded-xl border border-brand-200 shadow-sm">
+                        <span class="text-lg sm:text-xl shrink-0">🛍️</span>
+                        <div>
+                            <h4 class="font-bold text-xs sm:text-sm text-brand-800">Cierre hermético</h4>
+                            <p class="text-[11px] sm:text-xs text-brand-600 mt-0.5">Conservar en la bolsa bien cerrada para preservar la humedad y suavidad de la miga.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3.5 sm:p-4 bg-white rounded-xl border border-brand-200 shadow-sm">
+                        <span class="text-lg sm:text-xl shrink-0">❄️</span>
+                        <div>
+                            <h4 class="font-bold text-xs sm:text-sm text-brand-800">Apto Freezado (3 meses)</h4>
+                            <p class="text-[11px] sm:text-xs text-brand-600 mt-0.5">Podés rebanarlo y congelarlo. Descongelá directo en tostadora para disfrutarlo como recién horneado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contacto" class="bg-brand-900 text-brand-100 py-12 sm:py-16 w-full">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 border-b border-brand-800 pb-10 mb-8">
+                
+                <div>
+                    <h4 class="font-serif font-bold text-xl sm:text-2xl text-white mb-1.5">Miga & Grano</h4>
+                    <p class="text-[10px] sm:text-xs text-brand-300 uppercase tracking-widest mb-3">Panadería Artesanal de F. M. Deleppe</p>
+                    <p class="text-brand-300 text-xs sm:text-sm leading-relaxed mb-4">
+                        Elaboración artesanal de panadería y pastelería con ingredientes seleccionados de primera calidad.
+                    </p>
+                    <span class="inline-block text-[11px] text-brand-400 bg-brand-800 px-3 py-1 rounded-md border border-brand-700">
+                        🇦🇷 Producto Elaborado en Argentina
+                    </span>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-white text-xs sm:text-sm uppercase tracking-wider mb-3">Contacto & Pedidos</h5>
+                    <ul class="space-y-2.5 text-xs sm:text-sm text-brand-300">
+                        <li class="flex items-center gap-2">
+                            <span>📱 WhatsApp:</span>
+                            <a href="https://wa.me/?text=Hola!%20Quisiera%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer" class="text-wheat hover:underline">Atención directa y pedidos</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span>📸 Instagram:</span>
+                            <a href="https://instagram.com/migaygranodefmd" target="_blank" rel="noopener noreferrer" class="text-wheat hover:underline">@migaygranodefmd</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span>📍 Envíos:</span>
+                            <span>Consultar zonas de reparto y retiro</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-white text-xs sm:text-sm uppercase tracking-wider mb-3">Horarios de Elaboración</h5>
+                    <p class="text-xs sm:text-sm text-brand-300 leading-relaxed mb-3">
+                        Horneamos a pedido para asegurar que recibas tu pan recién elaborado.
+                    </p>
+                    <p class="text-xs text-brand-400 italic">
+                        "Hecho con pasión, todos los días."
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs text-brand-400 gap-3 text-center sm:text-left">
+                <p>© 2026 Miga & Grano de F.M. Deleppe. Todos los derechos reservados.</p>
+                <p>Elegí lo natural, elegí sentirte bien.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
